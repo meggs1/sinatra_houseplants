@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
     validates :name, presence: true
     validates :username, presence: true, uniqueness: { case_sensitive: false }
     validates :password_digest, presence: true
+
+    def slug
+        self.name.downcase.gsub(" ","-")
+    end
+
 end
