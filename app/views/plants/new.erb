@@ -1,12 +1,9 @@
 <h1>Create a New Plant</h1>
 <form action="/plants" method="POST">
-    <label>Type:</label><input type="text" name="plant[scientific_name]"><br>
+    <label>Type:</label><input type="text" name="plant[name]"><br>
     <label>Nickname:</label><input type="text" name="plant[nickname]"><br>
-    <label>Sunlight Needs:</label><input type="text" name="plant[sunlight_needs]">
-    <label>Room:</label>
-    <% @rooms.each do |room| %>
-    <input id="<%= room.name %>" type="checkbox" name="user[rooms][]" value="<%= room.id %>"><%= room.name %><br>
-    <% end %>
+
+
     <input type="submit" value="Create">
 
 </form>
