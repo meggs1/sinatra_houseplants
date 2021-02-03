@@ -1,6 +1,6 @@
 <h1><%= @user.name %>'s Plants </h1>
 <% @plants.each do |plant| %>
-<li><%= plant.name %>
+<li> <a href="/plants/<%= plant.id%>"><%= plant.name %>
 <% end %>
 
 <a href="/plants/new">Add a new plant</a>

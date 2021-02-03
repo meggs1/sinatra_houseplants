@@ -30,6 +30,21 @@ class PlantsController < ApplicationController
         end
     end
 
+    get '/plants/:id/edit' do
+        redirect_if_not_logged_in
+        @user = current_user
+        @plant = Plant.find_by(id: params[:id])
+        erb :"/plants/edit"
+    end
+
+    patch '/plants/:id' do
+        redirect_if_not_logged_in
+        @plant = Plant.find_by(id: params[:id])
+        @plant.update(params["plant"])
+        redirect "/plants/#{@plant.id}"
+    end
+
+
 
 
 
