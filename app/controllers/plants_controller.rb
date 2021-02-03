@@ -13,6 +13,12 @@ class PlantsController < ApplicationController
         erb :'plants/new'
     end
 
+    get '/plants/:id' do
+        redirect_if_not_logged_in
+        @plant = Plant.find_by(id: params[:id])
+        erb :"/plants/show"
+    end
+
     post '/plants' do
         redirect_if_not_logged_in
         plant = Plant.create(params[:plant])
@@ -23,6 +29,8 @@ class PlantsController < ApplicationController
             redirect "/plants"
         end
     end
+
+
 
 
 end
