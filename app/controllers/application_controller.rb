@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_logged_in #added here to make code more dry
-        redirect "/rooms" if logged_in?
+        redirect "/plants" if logged_in?
     end
     
 end

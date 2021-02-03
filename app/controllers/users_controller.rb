@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         user = User.new(params)
         if user.save
             session[:user_id] = user.id
-            redirect "/rooms"
+            redirect "/plants"
         else
             #add flash error message
             redirect "/signup"
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
         user = User.find_by(:username => params["username"])
         if user && user.authenticate(params["password"])
             session["user_id"] = user.id #logs user in and sets session id
-            redirect "/rooms"
+            redirect "/plants"
         else
             redirect "/login"
         end

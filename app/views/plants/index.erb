@@ -1,0 +1,13 @@
+<h1><%= @user.name %>'s Plants </h1>
+<% @plants.each do |plant| %>
+<li><%= plant.name %>
+<% end %>
+
+<a href="/plants/new">Add a new plant</a>
+
+
+<br> <!-- move to layout page, make conditional -->
+<form action="/logout" method="POST">
+    <input type="hidden" value="DELETE" name="_method">
+    <input type="submit" value="Logout">
+</form>
