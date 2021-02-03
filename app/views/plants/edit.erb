@@ -1,11 +1,17 @@
 <h1>Edit <%= @plant.name %></h1>
 <form action="/plants/<%= @plant.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method">
-    <input type="text" name="plant[name]" placeholder="New Type"><br>
-    <input type="text" name="plant[nickname]" placeholder="New Nickname"><br>
+    <input type="text" name="plant[name]" placeholder="Edit Type"><br>
+    <input type="text" name="plant[nickname]" placeholder="Edit Nickname"><br>
     <input type="text" name="plant[water]" placeholder="Update Watering Needs"><br>
-    <input type="text" name="plant[sunlight]" placeholder="Update Sunlight Needs"><br>
+    <input type="text" name="plant[sunlight]" placeholder="Update Lighting Needs"><br>
     <input type="text" name="plant[fertilizer]" placeholder="Update Fertilizer Needs"><br>
     <input type="text" name="plant[notes]" placeholder="Update Other Notes"><br>
-    <input type="submit" value="Edit">
+    <input type="submit" value="Edit Plant">
+    
+</form>
+
+<form method="POST" action="/plants/<%= @plant.id %>">
+    <input type="hidden" value="DELETE" name="_method">
+    <input type="submit" value="Delete Plant">
 </form>
