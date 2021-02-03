@@ -1,5 +1,8 @@
 <h3><%= @plant.name %> aka: <%= @plant.nickname %></h3>
-
+<p>Watering Needs: <%= @plant.water %></p>
+<p>Lighting Needs: <%= @plant.sunlight %></p>
+<p>Fertilizer Needs: <%= @plant.fertilizer %></p>
+<p>Notes: <%= @plant.notes %></p>
 
 <a class="button" href="/plants/<%= @plant.id %>/edit">Edit plant</a>
 <a class="button" href="/plants">All plants</a>
