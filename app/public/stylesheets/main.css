@@ -1,0 +1,11 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: whitesmoke;
+    color: rgb(40, 40, 40);
+    font-family: Sans-Serif;
+    line-height: 18px;
+    margin: 10px;
+}
