@@ -7,15 +7,15 @@
     <label>Lighting Needs: </label><input type="text" name="plant[sunlight]" value="<%= @plant.sunlight %>"><br>
     <label>Fertilizer Needs: </label><input type="text" name="plant[fertilizer]" value="<%= @plant.fertilizer %>"><br>
 
-    <label>Pet Safe? (Choose one) </label> 
-    <input type="checkbox" id="dog_safe" name="plant[pet_safe]" value="Dog Safe">
+    <label>Pet Safe? </label> 
+    <input type="radio" id="dog_safe" name="plant[pet_safe]" value="Dog Safe">
     <label for="dog_safe"> Dog </label>
-    <input type="checkbox" id="cat_safe" name="plant[pet_safe]" value="Cat Safe">
+    <input type="radio" id="cat_safe" name="plant[pet_safe]" value="Cat Safe">
     <label for="cat_safe"> Cat </label>
-    <input type="checkbox" id="both_safe" name="plant[pet_safe]" value="Cat and Dog Safe">
-    <label for="both_safe"> Both </label><br>
-    <input type="checkbox" id="not_safe" name="plant[pet_safe]" value="Not Pet Safe">
-    <label for="not_safe"> Neither </label><br>
+    <input type="radio" id="both_safe" name="plant[pet_safe]" value="Cat and Dog Safe">
+    <label for="both_safe"> Cat and Dog Safe </label>
+    <input type="radio" id="not_safe" name="plant[pet_safe]" value="No">
+    <label for="not_safe"> No </label><br>
     <br>
 
 
