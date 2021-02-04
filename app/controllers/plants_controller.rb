@@ -39,8 +39,8 @@ class PlantsController < ApplicationController
 
     patch '/plants/:id' do
         redirect_if_not_logged_in
-        plant = Plant.find_by(id: params[:id])
-        plant.update(params["plant"])
+        @plant = Plant.find_by_id(params[:id])
+        @plant.update(params["plant"])
         redirect "/plants/#{@plant.id}"
     end
 
