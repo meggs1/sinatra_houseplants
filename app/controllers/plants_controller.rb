@@ -9,7 +9,7 @@ class PlantsController < ApplicationController
 
     get '/plants/new' do
         redirect_if_not_logged_in
-        user = current_user
+        @user = current_user
         erb :'plants/new'
     end
 

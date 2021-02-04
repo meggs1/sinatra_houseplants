@@ -6,6 +6,17 @@
     <label>Water Needs: </label><input type="text" name="plant[water]" value="<%= @plant.water %>"><br>
     <label>Lighting Needs: </label><input type="text" name="plant[sunlight]" value="<%= @plant.sunlight %>"><br>
     <label>Fertilizer Needs: </label><input type="text" name="plant[fertilizer]" value="<%= @plant.fertilizer %>"><br>
+
+    <label>Pet Safe?(Choose one) </label> 
+    <input type="checkbox" id="dog_safe" name="plant[pet_safe]" value="Dog Safe">
+    <label for="dog_safe"> Dog </label>
+    <input type="checkbox" id="cat_safe" name="plant[pet_safe]" value="Cat Safe">
+    <label for="cat_safe"> Cat </label>
+    <input type="checkbox" id="both_safe" name="plant[pet_safe]" value="Cat and Dog Safe">
+    <label for="both_safe"> Both </label><br>
+    <br>
+
+
     <label>Notes: </label><input type="text" name="plant[notes]" value="<%= @plant.notes %>"><br>
     <input type="submit" value="Edit Plant">
     
