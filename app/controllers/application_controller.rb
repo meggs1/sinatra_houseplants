@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
 
     get '/' do
         redirect_if_logged_in
-        erb :index
+        erb :"/users/index"
     end
 
     helpers do #in controller because i'm going to use them in my views
