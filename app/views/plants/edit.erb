@@ -1,6 +1,8 @@
+
 <h1>Edit <%= @plant.name %></h1>
 <form action="/plants/<%= @plant.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method">
+   
     <label>Type: </label><input type="text" name="plant[name]" value="<%= @plant.name %>"><br>
     <label>Nickname: </label><input type="text" name="plant[nickname]" value="<%= @plant.nickname %>"><br>
     <label>Water Needs: </label><input type="text" name="plant[water]" value="<%= @plant.water %>"><br>
@@ -17,12 +19,10 @@
     <input type="radio" id="not_safe" name="plant[pet_safe]" value="No">
     <label for="not_safe"> No </label><br>
     <br>
-
-
     <label>Notes: </label><input type="text" name="plant[notes]" value="<%= @plant.notes %>"><br>
-    <input type="submit" value="Edit Plant">
-    
+    <input type="submit" value="Edit Plant"> 
 </form>
+
 <form method="POST" action="/plants/<%= @plant.id %>">
     <input type="hidden" value="DELETE" name="_method">
     <input type="submit" value="Delete Plant">

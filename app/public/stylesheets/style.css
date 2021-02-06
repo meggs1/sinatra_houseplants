@@ -1,8 +1,5 @@
-.index-page-container {
-    text-align: center;
-    background-color: palegreen;
-}
 
-.navbar {
-    text-align: right;
-}
+
+h1, div {
+    text-align: center;
+  }
