@@ -1,4 +1,9 @@
 <h1><%= @user.name %>'s Plants </h1>
+
+<% if @user.plants.empty? %>
+    <p> You don't have any plants! </p>
+<%end%>
+
 <% @plants.each do |plant| %>
 <li> <a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a>
 <% end %><br>
