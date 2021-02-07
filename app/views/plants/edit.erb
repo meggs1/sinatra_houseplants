@@ -1,6 +1,6 @@
-<h1>Edit <%= @plant.name %></h1>
-
 <%if current_user == @plant.user %>
+
+<h1>Edit <%= @plant.name %></h1>
 <form action="/plants/<%= @plant.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method">
    

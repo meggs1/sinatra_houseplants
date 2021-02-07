@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
         if user.save
             session[:user_id] = user.id
+            flash[:welcome] = "Welcome to Houseplant helper!"
             redirect "/plants"
         elsif User.find_by_username(user_info[:username])
             flash[:account_taken] = "The username you entered is taken."

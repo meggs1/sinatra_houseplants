@@ -24,14 +24,17 @@ class PlantsController < ApplicationController
     post '/plants' do
         plant = Plant.create(params[:plant])
         @user = current_user
-        plant_nickname = params["plant"]["nickname"]
+        plant_info = {
+            :name => params["name"],
+            :nickname => params["nickname"]
+        }
         
-        if !params["plant"]["name"].empty? && !params["plant"]["nickname"].empty?
+        if plant_info.empty?
+            flash[:plant_failure] = "Please fill out plant type and give it a nickname."
+            redirect "/plants/new"
+        else
             @user.plants << plant
             redirect "/plants"
-        else
-            flash[:plant_failure] = "Please fill out plant type and give it a unique name."
-            redirect "/plants/new"
         end
     end
 
