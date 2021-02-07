@@ -25,7 +25,10 @@ class ApplicationController < Sinatra::Base
     private
 
     def redirect_if_not_logged_in #added here to make code more dry
-        redirect "/" if !logged_in? 
+        if !logged_in? 
+            flash[:not_logged_in] = "You need to be logged in to do this."
+            redirect "/"
+        end 
     end
 
     def redirect_if_logged_in #added here to make code more dry
