@@ -1,11 +1,9 @@
 class ApplicationController < Sinatra::Base
     register Sinatra::ActiveRecordExtension
     register Sinatra::Flash
-    set :views, 'app/views'
     enable :sessions
     set :session_secret, ENV['SESSION_SECRET']
-
-
+    set :views, 'app/views'
 
     get '/' do
         redirect_if_logged_in
