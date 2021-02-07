@@ -1,5 +1,6 @@
-
 <h1>Edit <%= @plant.name %></h1>
+
+<%if current_user == @plant.user %>
 <form action="/plants/<%= @plant.id %>" method="POST">
     <input type="hidden" value="PATCH" name="_method">
    
@@ -27,3 +28,9 @@
     <input type="hidden" value="DELETE" name="_method">
     <input type="submit" value="Delete Plant">
 </form>
+
+<%else%>
+<p> This isn't your plant!</p>
+
+<a class="button" href="/plants">Back to my plants</a>
+<%end%>

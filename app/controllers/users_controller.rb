@@ -11,8 +11,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect "/plants"
         else
-            #add flash error message
             redirect "/signup"
+            flash[:account_taken] = "The username you entered is taken."
         end
     end
 
