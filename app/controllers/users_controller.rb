@@ -7,12 +7,22 @@ class UsersController < ApplicationController
 
     post '/signup' do
         user = User.new(params)
+        user_info = {
+            :name => params["name"],
+            :username => params["username"],
+            :password => params["password"]
+        }
+
         if user.save
             session[:user_id] = user.id
             redirect "/plants"
-        else
-            redirect "/signup"
+        elsif User.find_by_username(user_info[:username])
             flash[:account_taken] = "The username you entered is taken."
+            redirect "/signup"
+        else
+            user_info.empty?
+            flash[:fill_signup] = "Please fill out all fields."
+            redirect "/signup"
         end
     end
 
