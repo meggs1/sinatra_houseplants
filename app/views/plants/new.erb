@@ -1,23 +1,53 @@
-<h1>Create a New Plant</h1>
+<body>
+    <form action="/plants" method="POST">
+    <h1>Create a New Plant</h1>
+        <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Type: </label>
+            <div class="col-sm">
+                <input type="text" class="form-control" name="plant[name]">
+            </div>
+        </div>  
+         
+        <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Nickname: </label>
+            <div class="col-sm">
+                <input type="text" class="form-control" name="plant[nickname]">
+            </div>
+        </div>
 
-<form action="/plants" method="POST">
-    <label>Type:</label><input type="text" name="plant[name]"><br>
-    <label>Nickname:</label><input type="text" name="plant[nickname]"><br>
-    <label>Sunlight Needs:</label><input type="text" name="plant[sunlight]"><br>
-    <label>Water Needs:</label><input type="text" name="plant[water]"><br>
-    <label>Fertilizer Needs:</label><input type="text" name="plant[fertilizer]"><br>
-    <label>Pet Safe? </label> 
-    <input type="radio" id="dog_safe" name="plant[pet_safe]" value="Dog Safe">
-    <label for="dog_safe"> Dog </label>
-    <input type="radio" id="cat_safe" name="plant[pet_safe]" value="Cat Safe">
-    <label for="cat_safe"> Cat </label>
-    <input type="radio" id="both_safe" name="plant[pet_safe]" value="Cat and Dog Safe">
-    <label for="both_safe"> Cat and Dog Safe </label>
-    <input type="radio" id="not_safe" name="plant[pet_safe]" value="No">
-    <label for="not_safe"> No </label><br>
-    <br>
-    <label>Other Notes:</label><input type="text" name="plant[notes]"><br>
+        <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Lighting: </label>
+            <div class="col-sm">
+                <input type="text" class="form-control" name="plant[sunlight]">
+            </div>
+        </div>
 
-    <input type="submit" value="Create">
+        <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Watering: </label>
+            <div class="col-sm">
+                <input type="text" class="form-control" name="plant[water]">
+            </div>
+        </div>
 
-</form>
+        <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Name: </label>
+            <div class="col-sm">
+                <input type="text" class="form-control" name="plant[fertilizer]">
+            </div>
+        </div>
+
+        <label>Pet Safe? </label> 
+        <input type="radio" id="dog_safe" name="plant[pet_safe]" value="Dog Safe">
+        <label for="dog_safe"> Dog </label>
+        <input type="radio" id="cat_safe" name="plant[pet_safe]" value="Cat Safe">
+        <label for="cat_safe"> Cat </label>
+        <input type="radio" id="both_safe" name="plant[pet_safe]" value="Cat and Dog Safe">
+        <label for="both_safe"> Cat and Dog Safe </label>
+        <input type="radio" id="not_safe" name="plant[pet_safe]" value="No">
+        <label for="not_safe"> No </label><br>
+        <br>
+        <label>Other Notes:</label><input type="text" name="plant[notes]"><br>
+
+        <input type="submit" value="Create">
+    </form>
+<body>
