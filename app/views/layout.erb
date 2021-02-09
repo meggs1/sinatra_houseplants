@@ -9,7 +9,7 @@
 
     <body style="background-color: #FFFFCC!important;">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4"> <!-- leave empty-->
             </div>
             <div class="col-md-4">
             <% flash.keys.each do |type| %>
@@ -17,7 +17,6 @@
                 <%= flash[type] %>
                 </div>
             <% end %>
-
             <%= yield %> 
         </div>
     </body> 

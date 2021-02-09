@@ -7,7 +7,7 @@
                 <input type="text" class="form-control" name="plant[name]">
             </div>
         </div>  
-         
+
         <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Nickname: </label>
             <div class="col-sm">
@@ -30,24 +30,40 @@
         </div>
 
         <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Name: </label>
+            <label for="name" class="col-sm-2 col-form-label">Fertilizer: </label>
             <div class="col-sm">
                 <input type="text" class="form-control" name="plant[fertilizer]">
             </div>
         </div>
 
-        <label>Pet Safe? </label> 
-        <input type="radio" id="dog_safe" name="plant[pet_safe]" value="Dog Safe">
-        <label for="dog_safe"> Dog </label>
-        <input type="radio" id="cat_safe" name="plant[pet_safe]" value="Cat Safe">
-        <label for="cat_safe"> Cat </label>
-        <input type="radio" id="both_safe" name="plant[pet_safe]" value="Cat and Dog Safe">
-        <label for="both_safe"> Cat and Dog Safe </label>
-        <input type="radio" id="not_safe" name="plant[pet_safe]" value="No">
-        <label for="not_safe"> No </label><br>
-        <br>
-        <label>Other Notes:</label><input type="text" name="plant[notes]"><br>
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Pet Safe?</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="dog_safe" value="Dog Safe">
+                    <label class="form-check-label" for="dog_safe"> Dog </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="cat_safe" value="Cat Safe">
+                    <label class="form-check-label" for="cat_safe"> Cat </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="both_safe" value="Cat and Dog Safe">
+                    <label class="form-check-label" for="both_safe"> Cat and Dog Safe </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="not_safe" value="Not Pet Safe">
+                    <label class="form-check-label" for="not_safe"> Neither </label>
+                </div>
+            </div>
+        </fieldset>
 
-        <input type="submit" value="Create">
+        <div class="mb-3">
+        <label for="notes" class="form-label">Notes:</label>
+        <textarea class="form-control" id="plant[notes]" placeholder="New leaves, location, temperament etc." rows="3"></textarea>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Create Plant</button>
+        </div>
     </form>
 <body>
