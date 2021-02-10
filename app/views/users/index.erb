@@ -1,21 +1,24 @@
 <body>
     <form action="/index" method="POST">
-    <figure class="text-center"><h1> Hello, please login to view and maintain your plants. </h1></figure>
+        <figure class="text-center"><h1> Hello, please login to view and maintain your plants. </h1></figure>
+
         <div class="row mb-3">
             <label for="username" class="col-sm-2 col-form-label">Username: </label>
             <div class="col-sm">
                 <input type="text" class="form-control" name="username">
             </div>
         </div>
+
         <div class="row mb-3">
             <label for="password" class="col-sm-2 col-form-label">Password: </label>
                 <div class="col-sm">
                 <input type="password" class="form-control" name="password">
             </div>
         </div>
+        
         <div class="d-grid gap-2">  
-        <button type="submit" class="btn btn-outline-success">Login</button>
-        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            <button type="submit" class="btn btn-outline-success">Login</button>
+            <p>Don't have an account? <a href="/signup">Sign up</a></p>
         </div>      
     </form>
 </body>

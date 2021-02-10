@@ -16,9 +16,13 @@ class PlantsController < ApplicationController
         erb :'plants/new'
     end
 
-    get '/plants/:id' do
-        @plant = Plant.find_by(id: params[:id])
-        erb :"/plants/show"
+    get '/plants/:id' do  
+        if @plant = Plant.find_by(id: params[:id])
+            erb :"/plants/show"
+        else
+            flash[:plant_not_found] = "Sorry, that plant can not be found."
+            redirect_if_logged_in
+        end
     end
 
     post '/plants' do
@@ -28,7 +32,7 @@ class PlantsController < ApplicationController
             flash[:plant_failure] = "Plants need a 'type' and a 'nickname'."
             redirect "/plants/new"
         else
-            @user.plants << plant
+            @user.plants << @plant
             redirect "/plants"
         end
     end

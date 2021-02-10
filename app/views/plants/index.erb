@@ -5,7 +5,7 @@
     <%end%>
 
     <% @plants.each do |plant| %>
-    <h6><a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
+        <h6><a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
     <% end %>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
