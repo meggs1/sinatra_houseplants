@@ -1,80 +1,78 @@
-<%if current_user == @plant.user %>
-
 <body>
-<form action="/plants/<%= @plant.id %>" method="POST">
-    <h1>Edit <%= @plant.nickname %> the <%= @plant.name %></h1>
-    <input type="hidden" value="PATCH" name="_method">
-        <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Type: </label>
-            <div class="col-sm">
-                <input type="text" class="form-control" name="plant[name]" value="<%= @plant.name %>">
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Nickname: </label>
-            <div class="col-sm">
-                <input type="text" class="form-control" name="plant[nickname]" value="<%= @plant.nickname %>">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Lighting: </label>
-            <div class="col-sm">
-                <input type="text" class="form-control" name="plant[sunlight]" value="<%= @plant.sunlight %>">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Watering: </label>
-            <div class="col-sm">
-                <input type="text" class="form-control" name="plant[water]" value="<%= @plant.water %>">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="name" class="col-sm-2 col-form-label">Fertilizer: </label>
-            <div class="col-sm">
-                <input type="text" class="form-control" name="plant[fertilizer]"  value="<%= @plant.fertilizer %>">
-            </div>
-        </div>
-
-        <fieldset class="row mb-3">
-            <legend class="col-form-label col-sm-2 pt-0">Pet Safe?</legend>
-            <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="dog_safe" value="Dog Safe">
-                    <label class="form-check-label" for="dog_safe"> Dog </label>
+    <%if current_user == @plant.user %>
+        <form action="/plants/<%= @plant.id %>" method="POST">
+            <figure class="text-center"><h1>Edit <%= @plant.nickname %> the <%= @plant.name %></h1></figure>
+            <input type="hidden" value="PATCH" name="_method">
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Type: </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="plant[name]" value="<%= @plant.name %>">
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="cat_safe" value="Cat Safe">
-                    <label class="form-check-label" for="cat_safe"> Cat </label>
+
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Nickname: </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="plant[nickname]" value="<%= @plant.nickname %>">
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="both_safe" value="Cat and Dog Safe">
-                    <label class="form-check-label" for="both_safe"> Cat and Dog Safe </label>
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Lighting: </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="plant[sunlight]" value="<%= @plant.sunlight %>">
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="plant[pet_safe]" id="not_safe" value="Not Pet Safe">
-                    <label class="form-check-label" for="not_safe"> Neither </label>
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Watering: </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="plant[water]" value="<%= @plant.water %>">
+                    </div>
                 </div>
-            </div>
 
-        </fieldset>
-        <div class="mb-3">
-        <label for="notes" class="form-label">Notes:</label>
-        <textarea class="form-control" id="plant[notes]"  rows="3"><%= @plant.notes %></textarea>
-        </div>
+                <div class="row mb-3">
+                    <label for="name" class="col-sm-2 col-form-label">Fertilizer: </label>
+                    <div class="col-sm">
+                        <input type="text" class="form-control" name="plant[fertilizer]"  value="<%= @plant.fertilizer %>">
+                    </div>
+                </div>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary me-md-2" type="submit">Edit Plant</button>
-        <form method="POST" action="/plants/<%= @plant.id %>">
-            <input type="hidden" value="DELETE" name="_method">
-            <button type="submit" class="btn btn-danger">Delete Plant</button>
-        </form>
-        </div>
-</form>
+                <fieldset class="row mb-3">
+                    <legend class="col-form-label col-sm-2 pt-0">Pet Safe?</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="plant[pet_safe]" id="dog_safe" value="Dog Safe">
+                            <label class="form-check-label" for="dog_safe"> Dog </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="plant[pet_safe]" id="cat_safe" value="Cat Safe">
+                            <label class="form-check-label" for="cat_safe"> Cat </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="plant[pet_safe]" id="both_safe" value="Cat and Dog Safe">
+                            <label class="form-check-label" for="both_safe"> Cat and Dog Safe </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="plant[pet_safe]" id="not_safe" value="Not Pet Safe">
+                            <label class="form-check-label" for="not_safe"> Neither </label>
+                        </div>
+                    </div>
+                </fieldset>
 
-<%else%>
-<p> This isn't your plant!</p>
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Notes:</label>
+                    <textarea class="form-control" id="plant[notes]"  rows="3"><%= @plant.notes %></textarea>
+                </div>
 
-<a class="button" href="/plants">Back to my plants</a>
-<%end%>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary me-md-2" type="submit">Edit Plant</button>
+                    <form method="POST" action="/plants/<%= @plant.id %>">
+                        <input type="hidden" value="DELETE" name="_method">
+                        <button type="submit" class="btn btn-danger">Delete Plant</button>
+                    </form>
+                </div>
+            </form>
+    <%else%>
+    <figure class="text-center"><p> This isn't your plant!</p></figure>
+    <a class="button" href="/plants">Back to my plants</a>
+    <%end%>
 </body>
