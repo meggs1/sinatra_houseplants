@@ -1,16 +1,18 @@
-<figure class="text-center"><h1><%= @user.name %>'s Plants </h1></figure>
+<body>
+    <figure class="text-center"><h1><%= @user.name %>'s Plants </h1></figure>
+    <% if @user.plants.empty? %>
+        <p> You don't have any plants! </p>
+    <%end%>
 
-<% if @user.plants.empty? %>
-    <p> You don't have any plants! </p>
-<%end%>
+    <% @plants.each do |plant| %>
+    <h6><a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
 
-<% @plants.each do |plant| %>
-<h6><a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
-
-<% end %>
-
-<a href="/plants/new">Add a new plant</a>
-<form action="/logout" method="POST">
-<input type="hidden" value="DELETE" name="_method">
-<button type="submit" class="btn btn-secondary float-right">Logout</button>
-</form>
+    <% end %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a button type="button" class="btn btn-outline-success" href="/plants/new">Add a new plant</a>
+        <form action="/logout" method="POST">
+        <input type="hidden" value="DELETE" name="_method">
+        <button type="submit" class="btn btn-outline-secondary">Logout</button>
+        </form>
+    </div>
+</body>

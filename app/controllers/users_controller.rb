@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             flash[:welcome] = "Welcome to Houseplant helper!"
             redirect "/plants"
         elsif User.find_by_username(user_info[:username])
-            flash[:account_taken] = "The username you entered is taken."
+            flash[:username_taken] = "The username you entered is taken."
             redirect "/signup"
         else
             user_info.empty?

@@ -16,12 +16,14 @@
                         <input type="text" class="form-control" name="plant[nickname]" value="<%= @plant.nickname %>">
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="sunlight" class="col-sm-2 col-form-label">Lighting: </label>
                     <div class="col-sm">
                         <input type="text" class="form-control" name="plant[sunlight]" value="<%= @plant.sunlight %>">
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="watering" class="col-sm-2 col-form-label">Watering: </label>
                     <div class="col-sm">
@@ -35,7 +37,6 @@
                         <input type="text" class="form-control" name="plant[fertilizer]"  value="<%= @plant.fertilizer %>">
                     </div>
                 </div>
-
 
                 <fieldset class="row mb-3">
                     <legend class="col-form-label col-sm-2 pt-0">Pet Safe?</legend>
@@ -70,7 +71,8 @@
 
             </form>
     <% else %>
-    <figure class="text-center"><p> This isn't your plant!</p></figure>
-    <a class="button" href="/plants">Back to my plants</a>
+        <div class="alert alert-danger" role="alert">
+            You can not edit a plant that you don't own <a href="/plants" class="alert-link">Click here to go back to your plants</a>.
+        </div>
     <% end %>
 </body>

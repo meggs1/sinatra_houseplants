@@ -24,13 +24,8 @@ class PlantsController < ApplicationController
     post '/plants' do
         plant = Plant.create(params[:plant])
         @user = current_user
-        plant_info = {
-            :name => params["name"],
-            :nickname => params["nickname"]
-        }
-        
-        if plant_info.empty?
-            flash[:plant_failure] = "Please fill out plant type and give it a nickname."
+        if plant.name.empty? || plant.nickname.empty?
+            flash[:plant_failure] = "Plants need a 'type' and a 'nickname'."
             redirect "/plants/new"
         else
             @user.plants << plant
@@ -47,7 +42,12 @@ class PlantsController < ApplicationController
     patch '/plants/:id' do
         @plant = Plant.find_by_id(params[:id])
         @plant.update(params["plant"])
-        redirect "/plants/#{@plant.id}"
+        if @plant.name.empty? || @plant.nickname.empty?
+            flash[:edit_plant_failure] = "Plants need a 'type' and a 'nickname'."
+            redirect "/plants/#{@plant.id}/edit"
+        else
+            redirect "/plants/#{@plant.id}"
+        end
     end
 
     delete '/plants/:id' do

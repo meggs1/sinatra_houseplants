@@ -1,37 +1,37 @@
-<figure class="text-center"><h1><%= @plant.nickname %> the <%= @plant.name %></h1></figure>
-<table class="table">
-    <tbody>
-    <tr>
-        <th scope="row">Watering:</th>
-        <td><%= @plant.water %></td>
-    </tr>
-    <tr>
-        <th scope="row">Lighting:</th> 
-        <td><%= @plant.sunlight %></td>
-    </tr>
-    <tr>
-    <th scope="row">Fertilizer:</td> 
-        <td><%= @plant.fertilizer %></td>
-    </tr>
-    <tr>
-    <th scope="row">Pet Safe:</td> 
-        <td><%= @plant.pet_safe %></td>
-    </tr>
-    <tr>
-    <th scope="row">Notes:</td> 
-        <td><%= @plant.notes %></td>
-    </tr>
-</table>
-<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-<a type="submit" class="btn btn-outline-success me-md-2" href="/plants/<%= @plant.id %>/edit">Edit Plant</a>
-<% if current_user == @plant.user %>
-<form method="POST" action="/plants/<%= @plant.id %>">
-    <input type="hidden" value="DELETE" name="_method">
-    <button type="submit" class="btn btn-outline-danger me-md-2">Delete Plant</button>
-</form>
-<% end %>
-<a type="submit" class="btn btn-outline-success me-md-2" href="/plants">My Plants</a>
+<body>
+    <figure class="text-center"><h1><%= @plant.nickname %> the <%= @plant.name %></h1></figure>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th scope="row">Watering:</th>
+            <td><%= @plant.water %></td>
+        </tr>
+        <tr>
+            <th scope="row">Lighting:</th> 
+            <td><%= @plant.sunlight %></td>
+        </tr>
+        <tr>
+        <th scope="row">Fertilizer:</td> 
+            <td><%= @plant.fertilizer %></td>
+        </tr>
+        <tr>
+        <th scope="row">Pet Safe:</td> 
+            <td><%= @plant.pet_safe %></td>
+        </tr>
+        <tr>
+        <th scope="row">Notes:</td> 
+            <td><%= @plant.notes %></td>
+        </tr>
+    </table>
 
-        
-</div>
-
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <% if current_user == @plant.user %>
+            <a type="submit" class="btn btn-outline-success me-md-2" href="/plants/<%= @plant.id %>/edit">Edit Plant</a>
+            <form method="POST" action="/plants/<%= @plant.id %>">
+                <input type="hidden" value="DELETE" name="_method">
+                <button type="submit" class="btn btn-outline-danger me-md-2">Delete Plant</button>
+            </form>
+        <% end %>
+        <a type="submit" class="btn btn-outline-success me-md-2" href="/plants">My Plants</a>
+    </div>
+</body>
