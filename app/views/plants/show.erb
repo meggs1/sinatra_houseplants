@@ -1,4 +1,4 @@
-<figure class="text-center"><h1><%= @plant.name %> aka: <%= @plant.nickname %></h1></figure>
+<figure class="text-center"><h1><%= @plant.nickname %> the <%= @plant.name %></h1></figure>
 <table class="table">
     <tbody>
     <tr>
@@ -22,7 +22,8 @@
         <td><%= @plant.notes %></td>
     </tr>
 </table>
-
-<a type="submit" class="btn btn-outline-success" href="/plants/<%= @plant.id %>/edit">Edit plant</a>
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+<a type="submit" class="btn btn-outline-success me-md-2" href="/plants/<%= @plant.id %>/edit">Edit plant</a>
 <a type="submit" class="btn btn-outline-success" href="/plants">All plants</a>
+</div>
 
