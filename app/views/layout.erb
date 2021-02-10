@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-4">
                 <% flash.keys.each do |type| %>
-                    <div data-alert class="flash <%= type %> alert-box radius">
+                    <div data-alert class="flash <%= type %> alert-danger text-center alert" role="alert">
                         <%= flash[type] %>
                     </div>
                 <% end %>
