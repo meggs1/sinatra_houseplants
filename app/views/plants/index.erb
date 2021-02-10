@@ -5,8 +5,9 @@
 <%end%>
 
 <% @plants.each do |plant| %>
-<li> <a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a>
-<% end %><br>
+<h6><a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
+
+<% end %>
 
 <a href="/plants/new">Add a new plant</a>
 <form action="/logout" method="POST">

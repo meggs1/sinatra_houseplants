@@ -11,30 +11,31 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="name" class="col-sm-2 col-form-label">Nickname: </label>
+                    <label for="nickname" class="col-sm-2 col-form-label">Nickname: </label>
                     <div class="col-sm">
                         <input type="text" class="form-control" name="plant[nickname]" value="<%= @plant.nickname %>">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="name" class="col-sm-2 col-form-label">Lighting: </label>
+                    <label for="sunlight" class="col-sm-2 col-form-label">Lighting: </label>
                     <div class="col-sm">
                         <input type="text" class="form-control" name="plant[sunlight]" value="<%= @plant.sunlight %>">
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="name" class="col-sm-2 col-form-label">Watering: </label>
+                    <label for="watering" class="col-sm-2 col-form-label">Watering: </label>
                     <div class="col-sm">
                         <input type="text" class="form-control" name="plant[water]" value="<%= @plant.water %>">
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label for="name" class="col-sm-2 col-form-label">Fertilizer: </label>
+                    <label for="fertilizer" class="col-sm-2 col-form-label">Fertilizer: </label>
                     <div class="col-sm">
                         <input type="text" class="form-control" name="plant[fertilizer]"  value="<%= @plant.fertilizer %>">
                     </div>
                 </div>
+
 
                 <fieldset class="row mb-3">
                     <legend class="col-form-label col-sm-2 pt-0">Pet Safe?</legend>
@@ -58,9 +59,9 @@
                     </div>
                 </fieldset>
 
-                <div class="mb-3">
+                <div class="row mb-3">
                     <label for="notes" class="form-label">Notes:</label>
-                    <textarea class="form-control" id="plant[notes]"  rows="3"><%= @plant.notes %></textarea>
+                    <textarea type="text" class="form-control" name="plant[notes]" rows="3"><%= @plant.notes %></textarea>
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
