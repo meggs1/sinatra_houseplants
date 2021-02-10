@@ -24,10 +24,12 @@
 </table>
 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
 <a type="submit" class="btn btn-outline-success me-md-2" href="/plants/<%= @plant.id %>/edit">Edit Plant</a>
+<% if current_user == @plant.user %>
 <form method="POST" action="/plants/<%= @plant.id %>">
     <input type="hidden" value="DELETE" name="_method">
     <button type="submit" class="btn btn-outline-danger me-md-2">Delete Plant</button>
 </form>
+<% end %>
 <a type="submit" class="btn btn-outline-success me-md-2" href="/plants">My Plants</a>
 
         
