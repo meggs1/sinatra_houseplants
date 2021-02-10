@@ -9,13 +9,12 @@
 
     <body style="background-color: #C7E1BA!important;">
         <div class="row">
-            <div class="col-md-4"> <!-- leave empty-->
-            </div>
+            <div class="col-md-4"> <!-- leave empty so everything is centered --></div>
             <div class="col-md-4">
                 <% flash.keys.each do |type| %>
                     <div data-alert class="flash <%= type %> alert-box radius">
-                    <%= flash[type] %>
-                </div>
+                        <%= flash[type] %>
+                    </div>
                 <% end %>
                 <%= yield %> 
             </div>
