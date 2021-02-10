@@ -64,12 +64,13 @@
                 </div>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary me-md-2" type="submit">Edit Plant</button>
-                    <form method="POST" action="/plants/<%= @plant.id %>">
-                        <input type="hidden" value="DELETE" name="_method">
-                        <button type="submit" class="btn btn-danger">Delete Plant</button>
-                    </form>
+                    <button type="submit" class="btn btn-primary me-md-2"> Edit Plant </button>
                 </div>
+
+            </form>
+            <form method="POST" action="/plants/<%= @plant.id %>"> <!--need to move this-->
+                <input type="hidden" value="DELETE" name="_method">
+                <button type="submit" class="btn btn-danger me-md-2">Delete Plant</button>
             </form>
     <%else%>
     <figure class="text-center"><p> This isn't your plant!</p></figure>

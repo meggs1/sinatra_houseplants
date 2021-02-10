@@ -1,11 +1,16 @@
 <figure class="text-center"><h1><%= @plant.name %> aka: <%= @plant.nickname %></h1></figure>
-
-<p>Watering Needs: <%= @plant.water %></p>
-<p>Lighting Needs: <%= @plant.sunlight %></p>
-<p>Fertilizer Needs: <%= @plant.fertilizer %></p>
-<p>Pet Safe: <%= @plant.pet_safe %></p>
-<p>Notes: <%= @plant.notes %></p>
-
+<dl class="row">
+    <dt class="col-sm-3">Watering:</dt>
+        <dd class="col-sm-9"><%= @plant.water %></dd>
+    <dt class="col-sm-3">Lighting:</dt> 
+        <dd class="col-sm-9"><%= @plant.sunlight %></dd>
+    <dt class="col-sm-3">Fertilizer:</dt> 
+        <dd class="col-sm-9"><%= @plant.fertilizer %></dd>
+    <dt class="col-sm-3">Pet Safe:</dt> 
+        <dd class="col-sm-9"><%= @plant.pet_safe %></dd>
+    <dt class="col-sm-3">Notes:</dt> 
+        <dd class="col-sm-9"><%= @plant.notes %></dd>
+</dl>
 <a class="button" href="/plants/<%= @plant.id %>/edit">Edit plant</a>
 <a class="button" href="/plants">All plants</a>
 
