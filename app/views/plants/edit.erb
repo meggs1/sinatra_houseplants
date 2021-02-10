@@ -64,17 +64,13 @@
                     <textarea type="text" class="form-control" name="plant[notes]" rows="3"><%= @plant.notes %></textarea>
                 </div>
 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="submit" class="btn btn-primary me-md-2"> Edit Plant </button>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success me-md-2"> Edit Plant </button>
                 </div>
 
             </form>
-            <form method="POST" action="/plants/<%= @plant.id %>"> <!--need to move this-->
-                <input type="hidden" value="DELETE" name="_method">
-                <button type="submit" class="btn btn-danger me-md-2">Delete Plant</button>
-            </form>
-    <%else%>
+    <% else %>
     <figure class="text-center"><p> This isn't your plant!</p></figure>
     <a class="button" href="/plants">Back to my plants</a>
-    <%end%>
+    <% end %>
 </body>
