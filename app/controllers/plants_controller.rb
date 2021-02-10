@@ -22,9 +22,9 @@ class PlantsController < ApplicationController
     end
 
     post '/plants' do
-        plant = Plant.create(params[:plant])
+        @plant = Plant.create(params[:plant])
         @user = current_user
-        if plant.name.empty? || plant.nickname.empty?
+        if @plant.name.empty? || @plant.nickname.empty?
             flash[:plant_failure] = "Plants need a 'type' and a 'nickname'."
             redirect "/plants/new"
         else
