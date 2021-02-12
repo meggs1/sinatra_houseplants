@@ -2,6 +2,7 @@
     <%if current_user == @plant.user %>
         <form action="/plants/<%= @plant.id %>" method="POST">
             <figure class="text-center"><h1>Edit <%= @plant.nickname %> the <%= @plant.name %></h1></figure>
+            <br>
             <input type="hidden" value="PATCH" name="_method">
             <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Type: </label>
@@ -59,7 +60,6 @@
                     </div>
                 </div>
             </fieldset>
-
             <div class="row mb-3">
                 <label for="notes" class="form-label">Notes:</label>
                 <textarea type="text" class="form-control" name="plant[notes]" rows="3"><%= @plant.notes %></textarea>
@@ -69,6 +69,7 @@
                 <button type="submit" class="btn btn-success me-md-2"> Edit Plant </button>
             </div>
         </form>
+        <br>
     <% else %>
         <div class="alert alert-danger" role="alert">
             You can not edit a plant that you don't own <a href="/plants" class="alert-link">Click here</a> to go back to your plants.

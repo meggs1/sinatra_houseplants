@@ -1,0 +1,21 @@
+@media screen {
+    /* --- Reset Styles --- */
+    * {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+  
+
+    body {
+      background-color: rgb(19, 107, 136);
+      color: #333;
+      font-family: Sans-Serif;
+      line-height: 18px;
+    }
+}

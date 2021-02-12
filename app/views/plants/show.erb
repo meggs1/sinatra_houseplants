@@ -1,6 +1,6 @@
 <body>
     <figure class="text-center"><h1><%= @plant.nickname %> the <%= @plant.name %></h1></figure>
-
+    <br>
     <table class="table">
         <tbody>
         <tr>
@@ -19,7 +19,7 @@
             <th scope="row">Notes:</td> <td><%= @plant.notes %></td>
         </tr>
     </table>
-    
+    <br> 
     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
         <% if current_user == @plant.user %>
             <a type="submit" class="btn btn-outline-success me-md-2" href="/plants/<%= @plant.id %>/edit">Edit Plant</a>
