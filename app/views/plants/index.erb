@@ -1,12 +1,12 @@
 <body>
-    <figure class="text-center"><h1><%= @user.name %>'s Plants </h1></figure>
+    <figure class="text-center text-success"><h1><%= @user.name %>'s Plants </h1></figure>
     <br>
     <% if @user.plants.empty? %>
         <h5> You don't have any plants! </h5>
     <%end%>
 
     <% @plants.each do |plant| %>
-        <h6><a href="/plants/<%= plant.id%>"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
+        <h6><a href="/plants/<%= plant.id%>" class="text-dark"><%= plant.name %> (<%= plant.nickname %>)</a></h6>
     <% end %>
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-center">

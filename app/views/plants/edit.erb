@@ -1,7 +1,7 @@
 <body>
     <%if current_user == @plant.user %>
         <form action="/plants/<%= @plant.id %>" method="POST">
-            <figure class="text-center"><h1>Edit <%= @plant.nickname %> the <%= @plant.name %></h1></figure>
+            <figure class="text-center text-success"><h1>Edit <%= @plant.nickname %> the <%= @plant.name %></h1></figure>
             <br>
             <input type="hidden" value="PATCH" name="_method">
             <div class="row mb-3">
@@ -72,7 +72,7 @@
         <br>
     <% else %>
         <div class="alert alert-danger" role="alert">
-            You can not edit a plant that you don't own <a href="/plants" class="alert-link">Click here</a> to go back to your plants.
+            You can not edit a plant that you don't own. <a href="/plants" class="alert-link">Click here</a> to go back to your plants.
         </div>
     <% end %>
 </body>
