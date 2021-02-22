@@ -42,6 +42,15 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/users/:id' do  
+        if @user = User.find_by(id: params[:id])
+            erb :"/users/show"
+        else
+            flash[:user_not_found] = "Sorry, that user can not be found."
+            redirect_if_logged_in
+        end
+    end
+
     delete '/logout' do #destroys session 
         redirect_if_not_logged_in
         session.clear
