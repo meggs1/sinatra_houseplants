@@ -10,26 +10,26 @@ class ApplicationController < Sinatra::Base
         erb :"/users/index"
     end
 
-    helpers do #in controller because i'm going to use them in my views
+    helpers do 
         def current_user
-            User.find_by_id(session["user_id"]) if session["user_id"] #returns nil (.find returns false)
+            User.find_by_id(session["user_id"]) if session["user_id"]
         end
 
         def logged_in?
-            !!current_user #if the current user exists
+            !!current_user
         end
     end
 
     private
 
-    def redirect_if_not_logged_in #added here to make code more dry
+    def redirect_if_not_logged_in
         if !logged_in? 
             flash[:not_logged_in] = "You need to be logged in to do this."
             redirect "/"
         end 
     end
 
-    def redirect_if_logged_in #added here to make code more dry
+    def redirect_if_logged_in
         redirect "/plants" if logged_in?
     end
     

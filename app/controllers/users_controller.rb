@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/index' do #render login form
+    get '/index' do
         redirect_if_logged_in
         erb :"users/index"
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     post '/index' do #creates session
         user = User.find_by(:username => params["username"])
         if user && user.authenticate(params["password"])
-            session["user_id"] = user.id #logs user in and sets session id
+            session["user_id"] = user.id
             redirect "/plants"
         else
             flash[:no_login] = "Sorry, we couldnt find a user with that username/password."
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         end
     end
 
-    delete '/logout' do #destroys session
+    delete '/logout' do
         redirect_if_not_logged_in
         session.clear
         redirect "/"
