@@ -5,7 +5,6 @@ class PlantsController < ApplicationController
     end
 
     get '/plants' do
-        redirect_if_not_logged_in
         @user = User.find(session["user_id"])
         @plants = @user.plants
         erb :"plants/index"
@@ -33,7 +32,7 @@ class PlantsController < ApplicationController
             redirect "/plants/new"
         else
             user.plants << plant
-            redirect "/plants"
+            redirect_if_logged_in
         end
     end
 
@@ -58,7 +57,7 @@ class PlantsController < ApplicationController
         plant = Plant.find_by(id: params[:id])
         if plant.delete
             flash[:delete_plant_success] = "You successfully deleted #{plant.name}."
-            redirect "/plants"
+            redirect_if_logged_in
         else
             redirect "/plants/#{plant.id}"
         end

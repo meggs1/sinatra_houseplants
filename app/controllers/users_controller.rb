@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
         if user.save
             session[:user_id] = user.id
-            redirect "/plants"
+            redirect_if_logged_in
         elsif user.username = User.find_by_username(user_info[:username])
             flash[:username_taken] = "The username you entered is taken."
             redirect "/signup"
@@ -31,11 +31,11 @@ class UsersController < ApplicationController
         erb :"users/index"
     end
 
-    post '/index' do #creates session
+    post '/index' do
         user = User.find_by(:username => params["username"])
         if user && user.authenticate(params["password"])
             session["user_id"] = user.id
-            redirect "/plants"
+            redirect_if_logged_in
         else
             flash[:no_login] = "Sorry, we couldnt find a user with that username/password."
             redirect "/index"
