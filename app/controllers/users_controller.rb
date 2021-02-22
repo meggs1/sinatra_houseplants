@@ -51,6 +51,13 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/users/:id/edit' do
+        @user = current_user
+        @user = User.find_by(id: params[:id])
+        erb :"/users/edit"
+    end
+
+
     delete '/logout' do #destroys session 
         redirect_if_not_logged_in
         session.clear

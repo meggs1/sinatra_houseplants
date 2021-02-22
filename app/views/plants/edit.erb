@@ -2,8 +2,8 @@
     <%if current_user == @plant.user %>
         <form action="/plants/<%= @plant.id %>" method="POST">
             <figure class="text-center text-success"><h1>Edit <%= @plant.nickname %> the <%= @plant.name %></h1></figure>
-            <br>
             <input type="hidden" value="PATCH" name="_method">
+            <br>
             <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Type: </label>
                 <div class="col-sm">
