@@ -26,13 +26,13 @@ class PlantsController < ApplicationController
     end
 
     post '/plants' do
-        @plant = Plant.create(params[:plant])
-        @user = current_user
-        if @plant.name.empty? || @plant.nickname.empty?
+        plant = Plant.create(params[:plant])
+        user = current_user
+        if plant.name.empty? || plant.nickname.empty?
             flash[:plant_failure] = "Plants need a 'type' and a 'nickname'."
             redirect "/plants/new"
         else
-            @user.plants << @plant
+            user.plants << plant
             redirect "/plants"
         end
     end
@@ -44,20 +44,24 @@ class PlantsController < ApplicationController
     end
 
     patch '/plants/:id' do
-        @plant = Plant.find_by_id(params[:id])
-        @plant.update(params["plant"])
-        if @plant.name.empty? || @plant.nickname.empty?
+        plant = Plant.find_by_id(params[:id])
+        plant.update(params["plant"])
+        if plant.name.empty? || plant.nickname.empty?
             flash[:edit_plant_failure] = "Plants need a 'type' and a 'nickname'."
-            redirect "/plants/#{@plant.id}/edit"
+            redirect "/plants/#{plant.id}/edit"
         else
-            redirect "/plants/#{@plant.id}"
+            redirect "/plants/#{plant.id}"
         end
     end
 
     delete '/plants/:id' do
         plant = Plant.find_by(id: params[:id])
-        plant.delete
-        redirect "/plants"
+        if plant.delete
+            flash[:delete_plant_success] = "You successfully deleted #{plant.name}."
+            redirect "/plants"
+        else
+            redirect "/plants/#{plant.id}"
+        end
     end
 
 end
