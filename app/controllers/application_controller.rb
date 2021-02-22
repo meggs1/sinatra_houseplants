@@ -32,5 +32,10 @@ class ApplicationController < Sinatra::Base
     def redirect_if_logged_in
         redirect "/plants" if logged_in?
     end
+
+    error Sinatra::NotFound do
+        flash[:page_does_not_exist] = "That page does not exist."
+        redirect '/'
+    end
     
 end
