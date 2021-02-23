@@ -28,7 +28,7 @@ class PlantsController < ApplicationController
         plant = Plant.create(params[:plant])
         user = current_user
         if plant.name.empty? || plant.nickname.empty?
-            flash[:plant_failure] = "Plants need a 'type' and a 'nickname'."
+            flash[:plant_failure] = "Your plant needs a 'type' and a 'nickname'."
             redirect "/plants/new"
         else
             user.plants << plant
@@ -46,14 +46,14 @@ class PlantsController < ApplicationController
         plant = Plant.find_by_id(params[:id])
         plant.update(params["plant"])
         if plant.name.empty? || plant.nickname.empty?
-            flash[:edit_plant_failure] = "Plants need a 'type' and a 'nickname'."
+            flash[:edit_plant_failure] = "Your plant needs a 'type' and a 'nickname'."
             redirect "/plants/#{plant.id}/edit"
         else
             redirect "/plants/#{plant.id}"
         end
     end
 
-    delete '/plants/:id' do
+    post '/plants/:id' do
         plant = Plant.find_by(id: params[:id])
         if plant.delete
             flash[:delete_plant_success] = "You successfully deleted #{plant.name}."
@@ -62,5 +62,4 @@ class PlantsController < ApplicationController
             redirect "/plants/#{plant.id}"
         end
     end
-
 end
