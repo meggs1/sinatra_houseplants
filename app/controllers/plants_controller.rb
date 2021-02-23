@@ -16,7 +16,7 @@ class PlantsController < ApplicationController
     end
 
     get '/plants/:id' do  
-        if @plant = Plant.find_by(id: params[:id])
+        if @plant = Plant.find_by_id(params[:id])
             erb :"/plants/show"
         else
             flash[:plant_not_found] = "Sorry, that plant can not be found."
@@ -38,7 +38,7 @@ class PlantsController < ApplicationController
 
     get '/plants/:id/edit' do
         @user = current_user
-        @plant = Plant.find_by(id: params[:id])
+        @plant = Plant.find_by_id(params[:id])
         erb :"/plants/edit"
     end
 
@@ -53,8 +53,8 @@ class PlantsController < ApplicationController
         end
     end
 
-    post '/plants/:id' do
-        plant = Plant.find_by(id: params[:id])
+    delete '/plants/:id' do
+        plant = Plant.find_by_id(params[:id])
         if plant.delete
             flash[:delete_plant_success] = "You successfully deleted #{plant.name}."
             redirect_if_logged_in

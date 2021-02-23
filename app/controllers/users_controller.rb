@@ -6,21 +6,16 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.new(params)
-        user_info = {
-            :name => params["name"],
-            :username => params["username"],
-            :password => params["password"]
-        }
+        user = User.new(params[:user])
 
         if user.save
             session[:user_id] = user.id
             redirect_if_logged_in
-        elsif user.username = User.find_by_username(user_info[:username])
+        elsif user.username = User.find_by_username(params[:user][:username])
             flash[:username_taken] = "The username you entered is taken."
             redirect "/signup"
         else
-            user_info.empty?
+            params.empty?
             flash[:fill_signup] = "Please fill out all fields."
             redirect "/signup"
         end
@@ -32,8 +27,8 @@ class UsersController < ApplicationController
     end
 
     post '/index' do
-        user = User.find_by(:username => params["username"])
-        if user && user.authenticate(params["password"])
+        user = User.find_by_username(params[:user][:username])
+        if user && user.authenticate(params[:user][:password])
             session["user_id"] = user.id
             redirect_if_logged_in
         else
