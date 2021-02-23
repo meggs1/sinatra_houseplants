@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if user.save
             session[:user_id] = user.id
             redirect_if_logged_in
-        elsif user.username = User.find_by_username(params[:user][:username])
+        elsif user = User.find_by_username(params[:user][:username])
             flash[:username_taken] = "The username you entered is taken."
             redirect "/signup"
         else
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
             session["user_id"] = user.id
             redirect_if_logged_in
         else
-            flash[:no_login] = "Sorry, we couldnt find a user with that username/password."
+            flash[:no_login] = "Sorry, we couldn't find a user with that username/password."
             redirect "/index"
         end
     end
