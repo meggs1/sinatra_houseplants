@@ -2,7 +2,7 @@
     <figure class="text-center text-success"><h1><%= @user.name %>'s Plants </h1></figure>
     <br>
     <% if @user.plants.empty? %>
-        <h5> You don't have any plants! </h5>
+        <h5> You don't have any plants :( </h5>
     <%end%>
 
     <% @plants.each do |plant| %>
