@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if user.save
             session[:user_id] = user.id
             redirect_if_logged_in
-        elsif user = User.find_by_username(params[:user][:username])
+        elsif user.username = User.find_by_username(params[:user][:username])
             flash[:username_taken] = "The username you entered is taken."
             redirect "/signup"
         else
